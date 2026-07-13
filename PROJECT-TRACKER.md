@@ -1,6 +1,8 @@
 # 🚀 Master Project Tracker: UI Architecture PoC
 
 > **Goal:** Prove to leadership (CTO) that a 3-tier, prefix-free SCSS architecture increases development velocity and eliminates CSS regression bugs. 
+> 
+> **The Catalyst (Why we are doing this):** The [Aegis Architecture Audit](AEGIS-AUDIT-PROBLEM.md) exposed 4,371 hardcoded hex colors and 6,345 `!important` tags in the global application, and failed density implementations in the new Settings module. This PoC proves the solution.
 
 ---
 

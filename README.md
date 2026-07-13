@@ -50,6 +50,7 @@ Before any branch is merged or code is pushed, the committer must verify that th
 By isolating our CSS in this manner, an architect can change a single global semantic token, and the entire application updates instantly—without a developer ever needing to touch Angular `.ts` logic or component `.html` structure.
 
 ## Relevant Ecosystem Links
+* **The Problem Statement:** See [AEGIS-AUDIT-PROBLEM.md](AEGIS-AUDIT-PROBLEM.md) for the audit metrics (4,300+ hex codes) that necessitated this PoC.
 * **Single Source of Truth (SSOT) Token Repository:** [caresmartz360-design-system](https://github.com/Charan-Design-CS360/caresmartz360-design-system)
 * **Master Project Tracker:** See `PROJECT-TRACKER.md` for current progress.
 * **AI Instructions:** See `AI_CONTEXT.md` before making any AI-assisted code generations in this repository.
