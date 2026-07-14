@@ -1,10 +1,42 @@
-@import '1-primitives/colors';
-@import '1-primitives/spacing';
-@import '1-primitives/typography';
+// =============================================================================
+// CareSmartz360 Design System — master stylesheet
+// Import order matters: primitives → semantics → components.
+// Never import in reverse — a semantic file referencing an unloaded
+// primitive will silently resolve to nothing.
+// =============================================================================
 
-@import '2-semantics/theme-light';
-@import '2-semantics/layout';
-@import '2-semantics/a11y';
+// Tier 1 — Primitives
+@use '1-primitives/colors';
+@use '1-primitives/spacing';
+@use '1-primitives/typography';
+@use '1-primitives/effects';
 
-@import '3-components/cards';
-@import '3-components/tables';
+// Tier 2 — Semantics
+@use '2-semantics/theme-light';       // default / :root
+@use '2-semantics/theme-dark';        // [data-theme="dark"]
+// High contrast is intentionally not imported until its proposed token
+// dialect is replaced with a Figma-verified current-schema mapping.
+@use '2-semantics/density';           // [data-density="compact|default|comfortable"]
+@use '2-semantics/layout';
+@use '2-semantics/a11y';
+@use '2-semantics/status';
+
+// Tier 3 — Components
+@use '3-components/cards';
+@use '3-components/tables';
+@use '3-components/shift-cards';
+
+html,
+body {
+  margin: var(--spacing-none);
+  background: var(--surface-secondary);
+}
+
+button,
+select {
+  font-family: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}

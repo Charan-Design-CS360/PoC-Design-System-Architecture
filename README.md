@@ -5,6 +5,31 @@ This repository serves as a **Proof of Concept (PoC)** to demonstrate the implem
 
 The primary goal of this PoC is to prove to engineering leadership that adopting a strict, **3-tier design token architecture** decouples visual styling from business logic, dramatically reducing UI regression bugs and increasing developer velocity.
 
+## Track 2 Dashboard
+
+The Angular dashboard is implemented from the [AI Token SSO Figma reference](https://www.figma.com/design/uaUAsQokAvvEItccuNgXBZ/AI-Token-SSO?node-id=13-1063), using dashboard subframe `13:1099` as the visual source. It includes:
+
+- The Figma sidebar, Overview header, metric cards, and client table.
+- A real CareSmartz360 `.shift-card` consuming domain status tokens.
+- Live Light/Dark theme switching through `data-theme`.
+- Live Compact/Default/Comfortable density switching through `data-density`.
+- No component hex colors, raw pixel values, inline styles, `!important`, or portal-specific token prefixes.
+
+High Contrast is intentionally not offered: the current Figma source documents two verified color themes, while the inherited High Contrast file is still explicitly marked proposed/unverified.
+
+Desktop visual QA was completed against Figma subframes `13:1099` and `13:1112`. The PoC preserves their navigation, Overview header, metric-card, table, Light/Dark theme, and semantic color treatment while expanding the mini-app into a presentation-ready dashboard with a real shift-card example.
+
+## Run Locally
+
+```bash
+nvm use
+npm install
+npm run check:tokens
+npm start
+```
+
+The verified build command is `npm run build`. The project uses Node `22.23.1` and Angular `22.0.6`; the production-only npm audit reports zero vulnerabilities.
+
 ---
 
 ## 🏗️ The Architecture Layout
@@ -52,5 +77,6 @@ By isolating our CSS in this manner, an architect can change a single global sem
 ## Relevant Ecosystem Links
 * **The Problem Statement:** See [AEGIS-AUDIT-PROBLEM.md](AEGIS-AUDIT-PROBLEM.md) for the audit metrics (4,300+ hex codes) that necessitated this PoC.
 * **Single Source of Truth (SSOT) Token Repository:** [caresmartz360-design-system](https://github.com/Charan-Design-CS360/caresmartz360-design-system)
+* **PoC Figma Test Case:** [AI Token SSO, node 13:1063](https://www.figma.com/design/uaUAsQokAvvEItccuNgXBZ/AI-Token-SSO?node-id=13-1063)
 * **Master Project Tracker:** See `PROJECT-TRACKER.md` for current progress.
 * **AI Instructions:** See `AI_CONTEXT.md` before making any AI-assisted code generations in this repository.

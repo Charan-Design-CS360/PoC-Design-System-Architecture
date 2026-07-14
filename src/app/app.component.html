@@ -1,0 +1,128 @@
+<div class="dashboard-shell">
+  <aside class="sidebar" aria-label="Primary navigation">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">CS</span>
+      <span class="brand__name">CS360</span>
+    </div>
+
+    <nav class="navigation">
+      <button class="navigation__item" type="button">Dashboard</button>
+      <button class="navigation__item navigation__item--active" type="button">Clients</button>
+      <button class="navigation__item" type="button">Schedule</button>
+      <button class="navigation__item" type="button">Settings</button>
+    </nav>
+
+    <div class="sidebar__evidence">
+      <span>230 semantic variables</span>
+      <span>Zero component hex</span>
+    </div>
+  </aside>
+
+  <main class="workspace">
+    <header class="toolbar">
+      <div>
+        <p class="eyebrow">Agency dashboard</p>
+        <h1>Overview</h1>
+        <p class="toolbar__summary">One semantic contract controls every surface, state, and density.</p>
+      </div>
+
+      <div class="preferences" aria-label="Design-system preferences">
+        <label class="preference">
+          <span>Theme</span>
+          <select #themeSelect [value]="theme" (change)="setTheme(themeSelect.value)">
+            @for (option of themes; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+        </label>
+
+        <label class="preference">
+          <span>Density</span>
+          <select #densitySelect [value]="density" (change)="setDensity(densitySelect.value)">
+            @for (option of densities; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Agency metrics">
+      @for (metric of metrics; track metric.label) {
+        <article class="metric-card">
+          <span class="metric-card__label">{{ metric.label }}</span>
+          <strong class="metric-card__value">{{ metric.value }}</strong>
+          <span class="metric-card__detail">{{ metric.detail }}</span>
+        </article>
+      }
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel clients-panel">
+        <div class="panel__heading">
+          <div>
+            <p class="eyebrow">Client operations</p>
+            <h2>Upcoming reviews</h2>
+          </div>
+          <button class="action-button" type="button">View all clients</button>
+        </div>
+
+        <div class="table-frame">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Client</th>
+                <th scope="col">Coordinator</th>
+                <th scope="col">Status</th>
+                <th scope="col">Due</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of clients; track row.client) {
+                <tr>
+                  <td>{{ row.client }}</td>
+                  <td>{{ row.coordinator }}</td>
+                  <td><span class="status-tag" [class.status-tag--pending]="row.status !== 'Active'">{{ row.status }}</span></td>
+                  <td>{{ row.due }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel shift-panel">
+        <div class="panel__heading">
+          <div>
+            <p class="eyebrow">Live schedule</p>
+            <h2>Next shift</h2>
+          </div>
+          <span class="token-proof">Tier 3 → Tier 2</span>
+        </div>
+
+        <div class="shift-card shift-card--confirmed">
+          <div class="shift-card__header">
+            <div>
+              <div class="shift-card__title">Morning care visit</div>
+              <div class="shift-card__time">Today · 8:00 AM–12:00 PM</div>
+            </div>
+            <span class="shift-card__status-badge">Confirmed</span>
+          </div>
+          <div class="shift-card__body">
+            <span>Client: Eleanor Brooks</span>
+            <span>Caregiver: Maria Garcia</span>
+            <span>Office: Downtown</span>
+          </div>
+        </div>
+
+        <div class="architecture-proof">
+          <span>Primitives</span>
+          <span aria-hidden="true">→</span>
+          <span>Semantics</span>
+          <span aria-hidden="true">→</span>
+          <span>Components</span>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
