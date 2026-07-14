@@ -1,0 +1,27 @@
+// =============================================================================
+// TIER 3 — COMPONENTS: Cards (generic)
+// Mapped entirely to Tier 2 semantic variables — no raw hex, no primitives.
+// =============================================================================
+
+.card {
+  background: var(--surface-base);
+  border: var(--border-width-default) solid var(--border-subtle);
+  border-radius: var(--rounded-lg);
+  padding: var(--spacing-3xl);
+  box-shadow: var(--elevation-card);
+  transition: box-shadow var(--motion-hover-duration) var(--motion-hover-easing);
+
+  &:hover {
+    box-shadow: var(--elevation-card-hover);
+  }
+
+  &--outlined {
+    box-shadow: none;
+    border-color: var(--border-medium);
+  }
+
+  &--elevated {
+    border: none;
+    box-shadow: var(--elevation-card-hover);
+  }
+}
